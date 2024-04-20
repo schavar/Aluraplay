@@ -1,0 +1,163 @@
+/* Header: Ubicación y Adaptación*/
+.cabecera__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+/* Barra de Busqueda: Oculta para disp Moviles */
+.cabecera__buscar__item{
+    display: none;
+}
+
+/* Menu Lateral: mobile first poner al inferior */
+
+.menu__container{
+    position: fixed;
+    bottom: 0%;
+    height: 75px;
+    width: 100%;
+}
+
+.menu__lista{
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.menu__lista li {
+    align-self: center;
+}
+
+.menu__itens{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display: none;
+}
+
+
+/* Menu Superior: Organizar para que no se superpongan */
+.superior__seccion__container{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: scroll;
+    gap: 15px;
+
+}
+
+/* Seccion Videos */
+
+.videos__item{
+    height: 303px;
+    width: 280px;
+    flex-grow: 1;
+}
+
+.videos__container {
+     display: flex;          /* modificar para que ocupen el espacio igualmente*/
+    flex-wrap: wrap;   /* Wrap para que se continuen distribuyendo a lo alto y largo del espacio */
+    gap: 10px;
+
+}
+
+
+
+/* Footer: dividir en Columnas dependiendo del espacio */
+.rodapie__container{
+    display: flex;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
+    flex-flow: column wrap;
+}
+
+
+
+@media (min-width:834px) {
+
+    /* Header: mostrar barra de busqueda*/
+    .cabecera__buscar__item{
+        display: block;
+    }
+
+    /* Menu para tablets */
+    .menu__container {
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+
+    .menu__lista {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+
+
+    /* Footer: Adjuntar el espacio entre listas*/
+    .rodapie__container{
+        justify-content: space-between;
+    }
+      
+    
+}
+
+
+/* Adaptación para PC */
+@media (min-width: 1440px){
+
+    /* Modificar el ancho del menu y agregarle scroll para que quepa todo el contenido */
+    .menu__container{
+        width: 239px;
+        overflow: scroll;
+    }
+    /* Mostrar las listas ocultas para la version tab y mobil */
+    .menu__lista:nth-child(2),
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+        display: flex;
+    }
+    /* Modificar la altura del menú para que abarque toda la parte izquierda y espacios entre listas */
+    .menu__lista{
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap: 15px;
+
+    }
+    /* Organizar el orden de los elementos de la lista 3(Suscrpiciones) */
+    .menu__lista:nth-child(3){
+        flex-direction: column-reverse;
+    }
+    /* Poner los iconos y el texto de menu laterial uno al lado del otro */
+    .menu__itens{
+        flex-direction: row;
+        gap: 15px;
+        align-items: center; /* Centralizar el contenido */
+    }
+    /* Poner en orden los elementos del menu lateral en la parte inferior */
+    .premium{
+        order:1;
+    }
+
+    .peliculas{
+        order:2;
+    }
+
+    .videojuegos{
+        order:3;
+    }
+
+
+
+}
+
